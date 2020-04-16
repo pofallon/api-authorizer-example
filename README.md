@@ -1,14 +1,17 @@
-# Welcome to your CDK TypeScript project!
+## How to replicate the issue:
 
-This is a blank project for TypeScript development with CDK.
+1.  Clone this repo
+2.  Clone the [add-on](https://github.com/pofallon/api-authorizer-addon/) repo
+3.  From the add-on project root, run:
+    * `npm install`
+    * `npm run build`
+    * `npm link .`
+4.  From the root of _this_ project, run:
+    * `npm install`
+    * `npm link api-authorizer-addon`
+    * `cdk synth`
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+You should see an error with the message:
 
-## Useful commands
+`Authorizer (ApiAuthorizerExampleStack/AddOn/Authorizer) must be attached to a RestApi.`
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
